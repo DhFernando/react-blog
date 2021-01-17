@@ -2,8 +2,6 @@ import React , { useEffect , useState }  from 'react'
 import {useSelector , useDispatch} from 'react-redux'
 import {setDate} from '../redux/index'
 
-import {Divider} from '@material-ui/core'
-
 import Post from '../components/post/Post'
 
 const Home = () => {
@@ -29,7 +27,7 @@ const Home = () => {
 
     const ListPost = () =>{
        return posts.map(post =>{
-            return(<Post postDeatails={post} />)
+            return(<Post key={ post.id } postDeatails={post} />)
         })
     }
     
@@ -37,7 +35,6 @@ const Home = () => {
     return (
         <div>
             <ListPost />
-            
         </div>
     )
 }

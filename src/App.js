@@ -1,8 +1,11 @@
 import React from 'react';
-import Home from './Pages/Home'
-import Header from './components/Header'
 import { Provider } from 'react-redux'
 import store from './redux/store'
+
+import Home from './Pages/Home'
+import Header from './components/Header'
+import CreatePost from './components/CreatePost/CreatePost.jsx'
+
 // import './App.css'
 
 import {Container , CssBaseline} from '@material-ui/core';
@@ -38,7 +41,7 @@ function App() {
                   <Switch>
                     <Route exact path="/" component={ Home } />
               
-                    {/* <Route path="/product/user/:_id" component={ () => isLogin() ? <UserProfile /> :<Login /> } /> */}
+                    <Route path="/createpost" component={ CreatePost } />
                   
                   </Switch>
                 </Container>

@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+}
+
+.root__header{
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #424242;
+}
+
+.root__inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.root__input{
+   
+}
