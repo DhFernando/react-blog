@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+}
+
+.post{
+    margin-top: 15px;
+    max-width: 500px;
+    border: 1px solid lightgray;
+}
+
+.post__image{
+    width: 100%;
+    object-fit: contain;
+}
+
+.post__text{
+    font-weight: normal;
+}
+
+.post__avatar{
+    border: 2px solid green;
+    padding: 2px;
+}
+
+.post__header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.post__header__username{
+    margin-left: 9px;
+}
+
