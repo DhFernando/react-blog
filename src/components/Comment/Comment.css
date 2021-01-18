@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+}
+
+.root{
+    display: flex;
+    padding: 10px;
+}
+.comment__input{
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    padding-left: 10px;
+}
+
+.comment__button{
+    border: none;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 3px;
+}

@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+}
+
+.root_leftside{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.root_rightside{
+    padding-left: 1%;
+    padding-right: 1%;  
+    position: fixed;
+    margin-top: 75px;
+    top:10;
+    right: 0;
+}
+
+.root_rightside_paper{
+    padding: 10px 10px;
+    height: 550px;
+}

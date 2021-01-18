@@ -15,11 +15,13 @@
 
 .post__text{
     font-weight: normal;
+    padding-left: 10px ;
 }
 
 .post__avatar{
     border: 2px solid green;
     padding: 2px;
+    z-index: -1;
 }
 
 .post__header{

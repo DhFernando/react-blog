@@ -15,10 +15,12 @@ const initialState = {
 }
 
 const testReducer = (state = initialState , action) => {
-    if(action.type === "POST_POST"){
+    if(action.type === "PUBLISH_POST"){
+        let i = 2
         return {
             ...state,
-           posts : [ ...state.posts , action.payload ]
+           posts : [ ...state.posts , action.payload ],
+           id: i++
         }
     }else{
         return state

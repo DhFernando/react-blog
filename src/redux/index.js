@@ -3,5 +3,5 @@ export{
 }from "./Test/TestAction.js"
 
 export {
-    postPost
+    publishPost
 } from "./Post/PostAction.js"

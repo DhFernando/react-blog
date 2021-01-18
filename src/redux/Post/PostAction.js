@@ -1,8 +1,8 @@
 
-export const postPost = (newPost) => {
+export const publishPost = (newPost) => {
     return dispatch => {
         dispatch({
-            type: "POST_POST",
+            type: "PUBLISH_POST",
             payload: newPost
         })
     }

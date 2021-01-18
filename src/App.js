@@ -6,7 +6,7 @@ import Home from './Pages/Home'
 import Header from './components/Header'
 import CreatePost from './components/CreatePost/CreatePost.jsx'
 
-// import './App.css'
+import './App.css'
 
 import {Container , CssBaseline} from '@material-ui/core';
 
@@ -36,7 +36,7 @@ function App() {
               
               <Router>
                 <Header />
-                <Container maxWidth={ "xl" }>
+                <Container className="root__body" maxWidth={ "xl" }>
                   
                   <Switch>
                     <Route exact path="/" component={ Home } />

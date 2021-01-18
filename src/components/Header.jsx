@@ -1,7 +1,11 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { useHistory } from "react-router";
-import { AppBar , Toolbar , Grid , InputBase , IconButton , Badge , Typography , makeStyles, Button} from '@material-ui/core'
-import {ArrowBack , Save , AddCircle} from '@material-ui/icons';
+import { AppBar , Toolbar , Grid , IconButton,
+     Typography , makeStyles, Button, useMediaQuery, useTheme, ButtonGroup 
+} from '@material-ui/core'
+import {ArrowBack , AddCircle} from '@material-ui/icons';
+
+import Drawer from './Drawer'
 
 
 const useStyle = makeStyles({
@@ -15,14 +19,27 @@ const useStyle = makeStyles({
         marginTop:10,
         color:"#263238",
         fontWeight:600
+    },
+
+    navbar:{
+        position:"fixed",
+        top:0,
+        width:"100%"
+    },
+    nav_right:{
+        display:"flex",
+        justifyContent:"space-between"
     }
 })
 
 function Header() {
-
+    //Responsive Breakpoints
+    const theme = useTheme()
+    var IsMatch = (point) => {  return useMediaQuery(theme.breakpoints.down(point)) }
+    
     const classes = useStyle();
     const history = useHistory();
-
+    
     const goToCreatePostPage = ()=>{
         history.push({ pathname: "/createpost" })
     }
@@ -30,36 +47,80 @@ function Header() {
         history.push({ pathname: "/" })
     }
 
+    const [openDrawer, setOpenDrawer] = useState(false)
+    const handleDrawer = (open) =>{
+        setOpenDrawer(open)
+    }
+
     return (
-        <div>
+        <div className={classes.navbar} >
             <AppBar position="static" style={{background:"#eeeeee"}}> 
                 <Toolbar>
                     <Grid container>
                         <Grid item sm={6} >
-                            <IconButton style={{float:"left"}}>
+                            {IsMatch("sm") ? (<IconButton style={{float:"left"}}  onClick={ ()=>handleDrawer(true) }>
                                 <ArrowBack style={{ color : "#424242" }} />
-                            </IconButton>
+                            </IconButton>) : null}
 
                             <Typography className={ classes.title }  variant="h6" onClick={()=>goToHome()}>
-                                React-Blogger
+                                React-Blogger 
                             </Typography>
                             
                         </Grid>
-                        <Grid item sm={6} >
-                            <Button
-                                variant="outlined"
-                                size="small"
-                                className={classes.button}
-                                startIcon={<AddCircle style={{ color:"#00e676" }} />}
+                        <Grid className={classes.nav_right} item sm={6} >
+                            <div>
+                                {!IsMatch("sm") ? (<Button
+                                    variant="outlined"
+                                    size="small"
+                                    className={classes.button}
+                                    startIcon={<AddCircle style={{ color:"#00e676" }} />}
 
-                                onClick={()=>{ goToCreatePostPage() }}
-                            >
-                                Create a new post
-                            </Button>
+                                    onClick={()=>{ goToCreatePostPage() }}
+                                >
+                                    Create a new post
+                                </Button>) : null}
+                            </div>
+                            <div>
+                                <ButtonGroup>
+                                    <Button
+                                        variant="outlined"
+                                        size="small"
+                                        className={classes.button}
+                                        startIcon={<AddCircle style={{ color:"#00e676" }} />}
+
+                                        onClick={()=>{ goToCreatePostPage() }}
+                                    >
+                                        login
+                                    </Button>
+                                    {!IsMatch("sm") && (<Button
+                                        variant="outlined"
+                                        size="small"
+                                        className={classes.button}
+                                        startIcon={<AddCircle style={{ color:"#00e676" }} />}
+
+                                        onClick={()=>{ goToCreatePostPage() }}
+                                    >
+                                        Register
+                                    </Button>)}
+                                    {!IsMatch("sm") && (<Button
+                                        variant="outlined"
+                                        size="small"
+                                        className={classes.button}
+                                        startIcon={<AddCircle style={{ color:"#00e676" }} />}
+
+                                        onClick={()=>{ goToCreatePostPage() }}
+                                    >
+                                        logout
+                                    </Button>)}
+                                </ButtonGroup>
+                            </div>
                         </Grid>
                     </Grid>
                 </Toolbar>
             </AppBar>
+            
+            <Drawer open={ openDrawer } handleDrawer={ handleDrawer }  />
+
         </div>
     )
 }
